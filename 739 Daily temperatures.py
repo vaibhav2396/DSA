@@ -24,8 +24,8 @@ Constraints:
 
 '''
 
-class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+
+def dailyTemperatures(temperatures):
         tempLength = len(temperatures)
         result = [0] * tempLength
         stack = []
@@ -33,7 +33,7 @@ class Solution:
         for i in range(tempLength):
             while stack and temperatures[stack[-1]] < temperatures[i]:
                 index = stack.pop()
-                result[index] = i - pop
+                result[index] = i - index
             stack.append(i)
         
-        return result
+        return result    
